@@ -1,0 +1,45 @@
+﻿@model hsdc.dpt.Control.DTO.Creational.Builder.ApplyExpense
+
+@{
+    ViewBag.Title = "新增請假單";
+}
+
+<h2>新增請假單</h2>
+
+@using (Html.BeginForm("SaveApplyExpense", "Builder", FormMethod.Post, new { id = "frmSave" }))
+{
+    <table>
+        <tr>
+            <th>費用申請單單號</th>
+            <td>@(Model.ApplyExpenseID == null ? "" : Model.ApplyExpenseID)</td>
+        </tr>
+        <tr>
+            <th>申請人</th>
+            <td>@Html.TextBoxFor(m => m.Applier)</td>
+        </tr>
+        <tr>
+            <th>申請類別</th>
+            <td>@Html.TextBoxFor(m => m.ApplyExpenseType)</td>
+        </tr>
+        <tr>
+            <th>申請日期</th>
+            <td>@Html.TextBoxFor(m => m.ApplyDate)</td>
+        </tr>
+        <tr>
+            <th>總申請金額</th>
+            <td>@Html.TextBoxFor(m => m.TotalExpense, new Dictionary<string, object>() { { "readonly", "true" } })</td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <button id="save">儲存</button>
+}
+
+@section BodyScripts
+{
+    <script>
+        $("#save").click(function () {
+            $("#frmSave").submit();
+        });
+    </script>
+}

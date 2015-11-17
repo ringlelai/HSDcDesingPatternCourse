@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DesignPatternModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Code">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodeType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CodeValue" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CodeText" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+        </EntityType>
+        <Association Name="FK_Table_ToTable">
+          <End Role="Code" Type="Self.Code" Multiplicity="0..1" />
+          <End Role="Code1" Type="Self.Code" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Code">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Code1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DesignPatternModelStoreContainer">
+          <EntitySet Name="Code" EntityType="Self.Code" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
+            <End Role="Code" EntitySet="Code" />
+            <End Role="Code1" EntitySet="Code" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DesignPatternModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Code" a:TypeAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" a:GetterAccess="Internal" a:SetterAccess="Internal" />
+          <Property Name="CodeType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" a:GetterAccess="Internal" a:SetterAccess="Internal" />
+          <Property Name="CodeValue" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" a:GetterAccess="Internal" a:SetterAccess="Internal" />
+          <Property Name="CodeText" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" a:GetterAccess="Internal" a:SetterAccess="Internal" />
+          <Property Name="ParentId" Type="Int32" a:GetterAccess="Internal" a:SetterAccess="Internal" />
+          <NavigationProperty Name="Code1" Relationship="Self.FK_Table_ToTable" FromRole="Code" ToRole="Code1" a:GetterAccess="Internal" a:SetterAccess="Internal" />
+          <NavigationProperty Name="Code2" Relationship="Self.FK_Table_ToTable" FromRole="Code1" ToRole="Code" a:GetterAccess="Internal" a:SetterAccess="Internal" />
+        </EntityType>
+        <Association Name="FK_Table_ToTable">
+          <End Role="Code" Type="Self.Code" Multiplicity="0..1" />
+          <End Role="Code1" Type="Self.Code" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Code">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Code1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DesignPatternEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Code" EntityType="Self.Code" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
+            <End Role="Code" EntitySet="Code" />
+            <End Role="Code1" EntitySet="Code" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DesignPatternModelStoreContainer" CdmEntityContainer="DesignPatternEntities">
+          <EntitySetMapping Name="Code">
+            <EntityTypeMapping TypeName="DesignPatternModel.Code">
+              <MappingFragment StoreEntitySet="Code">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CodeType" ColumnName="CodeType" />
+                <ScalarProperty Name="CodeValue" ColumnName="CodeValue" />
+                <ScalarProperty Name="CodeText" ColumnName="CodeText" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
