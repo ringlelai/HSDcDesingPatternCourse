@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>State Pattern</h2>
+<h3>追蹤訂單狀態-Demo</h3>
+<form name="frmTrackOrder" action="/State/Stamp" method="get">
+    <div>
+        <label for="LblStampIt">執行人員：</label>
+        <input type="Submit" name="Stamp" value="簽署" />
+    </div>
+</form>
+<h3>訂單處理結果</h3>
+<div>
+    @MvcHtmlString.Create(Html.Encode(ViewData["OrderState"]).Replace("\n", "<br />"))
+</div>
