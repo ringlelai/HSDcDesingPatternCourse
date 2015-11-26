@@ -1,0 +1,54 @@
+﻿@model List<hsdc.dpt.Control.DTO.Creational.Prototype.RingleFramework.Intf.PurchaseOrder>
+
+@{
+    ViewBag.Title = "取得採購清單";
+}
+
+<h2>取得採購清單</h2>
+
+<table class="table-bordered">
+    <colgroup>
+        <col width="100" />
+        <col width="400" />
+        <col width="300" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>採購編號</th>
+            <th>客戶名稱</th>
+            <th>總金額</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var po in Model)
+            {
+                <tr>
+                    <td>@po.PoNumber</td>
+                    <td>@po.CustomerName</td>
+                    <td align="right">@po.Total</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">查無相關資料</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<br />
+<button id="newPo">新增採購單</button>
+<form id="newPoFrm" action="/Prototype/RingleFrameworkAdd" method="get"></form>
+
+@section BodyScripts
+{
+    <script>
+        $("#newPo").click(function () {
+            $("#newPoFrm").submit();
+        });
+    </script>
+}
