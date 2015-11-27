@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "新增採購單";
+}
+
+<h2>新增採購單</h2>
+
+<form id="frmAddPo" action="/Prototype/RFAddPo" method="post">
+    <table>
+        <tr>
+            <th>客戶名稱</th>
+            <td><input type="text" name="CustName" /></td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <button id="btnAdd">新增</button>
+</form>
+
+@section BodyScripts 
+{
+    <script>
+        $("#btnAdd").click(function () {
+            $("#frmAddPo").submit();
+        });
+    </script>
+}
