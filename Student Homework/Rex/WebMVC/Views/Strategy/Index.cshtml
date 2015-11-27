@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Strategy Pattern</h2>
+<form name="frmExecuteStrategy" action="/Strategy/ExecuteStrategy" method="post">
+    <div>
+        <label for="SenderType">選擇交易策略： </label>
+        <select id="selStrategyType" name="selStrategyType">
+            <option value="黃金交叉">均線黃金交叉</option>
+            <option value="RSI">RSI 指標</option>
+        </select>
+    </div>
+    <br />
+    <br />
+    <div><input type="Submit" name="Submit" value="執行" /></div>
+</form>
+<h3>策略執行結果：</h3>
+<div>
+    @MvcHtmlString.Create(Html.Encode(ViewData["ProcssResult"]).Replace("\n", "<br />"))
+</div>
+

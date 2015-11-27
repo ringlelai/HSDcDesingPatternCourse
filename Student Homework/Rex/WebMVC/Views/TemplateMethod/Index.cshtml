@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "保單異動作業";
+}
+
+<h2>保單異動作業</h2>
+
+選擇異動作業：
+<select id="transactionType">
+    <option value="-">請選擇</option>
+    <option value="PolicyLoan">保單借款</option>
+    <option value="ChangeInsuredName">更改被保人姓名</option>
+</select>
+
+<div id="policyList" style="display:none">
+</div>
+
+@section BodyScripts
+{
+    <script>
+        $("#transactionType").change(function () {
+            var value = $("#transactionType").val();
+            if (value == "-") {
+                $("#policyList").hide();
+                return;
+            }
+            var inputdata = { type: value };
+            $.ajax({
+                type: 'GET',
+                url: '/TemplateMethod/QueryPolicyList',
+                datatype: 'application/json',
+                data: inputdata,
+                async: false,
+                success: function (data) {
+                    console.log(data);
+                    var div = $("#policyList");
+                    div.empty();
+                    var html = "";
+                    $.each(data, function (i, item) {
+                        if (item.CanEdit) {
+                            html = "<p>有異動權限保單:</p>";
+                            html += "<table class='table'>";
+                            html += "<tr><th>保單號碼</th><th>險種</th><th>要保人</th><th>被保險人</th></tr>"
+                            $.each(item.Policies, function (j, p) {
+                                html += "<tr>";
+                                html += "<td>" + p.PolicyNumber + "</td>";
+                                html += "<td>" + p.PolicyName + "</td>";
+                                html += "<td>" + p.PolicyOwnerName + "</td>";
+                                html += "<td>" + p.PolicyInsuredName + "</td>";
+                                html += "</tr>";
+                            });
+                            html += "</table>";
+                        } else {
+                            html += "<p>無異動權限保單:</p>"
+                            html += "<table class='table'>";
+                            html += "<tr><th>保單號碼</th><th>險種</th><th>要保人</th><th>被保險人</th></tr>"
+                            $.each(item.Policies, function (j, p) {
+                                html += "<tr>";
+                                html += "<td>" + p.PolicyNumber + "</td>";
+                                html += "<td>" + p.PolicyName + "</td>";
+                                html += "<td>" + p.PolicyOwnerName + "</td>";
+                                html += "<td>" + p.PolicyInsuredName + "</td>";
+                                html += "</tr>";
+                            });
+                            html += "</table>";
+                        }
+                    });
+                    div.append(html);
+                    div.show();
+                }
+            });
+        });
+    </script>
+}

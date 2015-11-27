@@ -1,0 +1,58 @@
+﻿@model List<hsdc.dpt.Control.DTO.Structual.Flyweight.CodeDto>
+
+@{
+    ViewBag.Title = "地址輸入";
+}
+
+<h2>輸入地址</h2>
+
+<table>
+    <tr>
+        <th>請選擇城市別:</th>
+        <td>
+            <select id="city">
+                <option>-</option>
+                @{foreach (var code in Model)
+                  {
+                      <option value="@code.CodeValue">@code.CodeText</option>
+                  }
+                }
+            </select>
+        </td>
+    </tr>
+</table>
+<div id="areaDiv">
+</div>
+
+@section BodyScripts
+{
+    <script>
+        $("#city").change(function () {
+            var value = $("#city").val();
+            if (value == "-") {
+                $("#areaDiv").hide();
+                alert("請先選擇一個城市");
+                return;
+            }
+            var inputdata = { city: value };
+            $.ajax({
+                type: 'GET',
+                url: '/Flyweight/QueryArea',
+                datatype: 'application/json',
+                data: inputdata,
+                async: false,
+                success: function (data) {
+                    var div = $("#areaDiv");
+                    div.empty();
+                    var html = "<table><tr><th>請選擇地區別:</th><td><select id='area'><option>-</option>";
+                    $.each(data, function (i, item) {
+                        html += "<option value='" + item.CodeValue + "'>" + item.CodeText+ "</option>";
+                    });
+                    html += "</select></td></tr></table>";
+                    div.append(html);
+                    div.show();
+                }
+            });
+        });
+    </script>
+}

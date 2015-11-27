@@ -1,0 +1,35 @@
+﻿@model List<hsdc.dpt.Control.DTO.烏龜商品>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Facade Pattern</h2>
+
+<h3>列出菜單</h3>
+<form name="frmAddToCart" action="/Facade/AddToCart" method="post">
+    <table cellpadding="5">
+        <thead>
+            <tr>
+                <th>編號</th>
+                <th>菜名</th>
+                <th>價錢</th>
+                <th>購買數量</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><input type="hidden" name="id_@item.id" value="@item.id">@item.id</td>
+                <td>@item.name</td>
+                <td>@item.price</td>
+                <td><input type="text" name="qty_@item.id" value="" /></td>                
+            </tr>
+        }
+    </table>
+    <br />
+    <div>
+        <label for="輸入折扣券">輸入折扣券代碼：</label> <input type="text" name="txtCoupon" value="" /> <br /><br />
+        <input type="Submit" name="BtnAddToCart" value="放入購物車" />
+    </div>
+</form>
