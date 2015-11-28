@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "AddWorkItem";
+}
+
+<h2>新增工作單</h2>
+<form name="frmAddWorkItem" action="/AbstractFactory/AddWorkItem" method="get">
+    <div>
+        <label for="LblWorkItemTitle">工作事項：</label>
+        @Html.TextBox("txtItemTitle")<br />
+        <label for="LblAssignType">指派類型：</label>
+        <select id="selAssigneeType" name="selAssigneeType">
+            <option value="ORGANIZATION">ORGANIZATION</option>
+            <option value="ROLE">ROLE</option>
+            <option value="HUMAN">HUMAN</option>
+        </select><br />
+        <label for="LblAssignee">指派者名稱：</label>
+        @Html.TextBox("txtAssignee")
+    </div>
+    <br />
+    <div>
+        <input type="Submit" name="SubmitAdd" value="新增" />
+    </div>
+</form>
+<div>
+    <br /><br />
+    <h3>@Html.ActionLink("列出所有工作單", "ListWorkItems")</h3>
+</div>

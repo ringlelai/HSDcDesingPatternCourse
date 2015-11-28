@@ -1,0 +1,42 @@
+﻿@model List<hsdc.dpt.Control.DTO.Creational.AbstractFactory.WorkItemDTO>
+
+@{
+    ViewBag.Title = "ListWorkItems";
+}
+
+<h2>列出所有工作單</h2>
+<form name="frmProcess" action="/AbstractFactory/Process" method="post">
+    <table cellpadding="5">
+        <thead>
+            <tr>
+                <th>編號</th>
+                <th>項目名稱</th>
+                <th>指派類型</th>
+                <th>指派者</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><input type="hidden" name="id_@item.ID" value="@item.ID">@item.ID</td>
+                <td>@item.item_title</td>
+                @switch (item.assign_type)
+                {
+                    case hsdc.dpt.Control.DTO.Creational.AbstractFactory.AssigneeType.ORGANIZATION :
+                        <td>ORGANIZATION</td>
+                        break;
+                    case hsdc.dpt.Control.DTO.Creational.AbstractFactory.AssigneeType.ROLE:
+                    <td>ROLE</td>
+                        break;
+                    case hsdc.dpt.Control.DTO.Creational.AbstractFactory.AssigneeType.HUMAN:
+                    <td>HUMAN</td>
+                        break;
+                }
+                <td>@item.assignee_name</td>
+                <td>@Html.ActionLink("處理", "Process", new { id = item.ID }) </td>
+            </tr>
+        }
+    </table>
+</form>
+
