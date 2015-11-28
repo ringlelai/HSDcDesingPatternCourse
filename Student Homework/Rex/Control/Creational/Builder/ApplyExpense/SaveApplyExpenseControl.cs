@@ -1,10 +1,8 @@
-﻿using hsdc.dpt.Control.DTO.Creational.Builder;
-
-namespace hsdc.dpt.Control.Creational.Builder
+﻿namespace hsdc.dpt.Control.Creational.Builder.ApplyExpense
 {
     public class SaveApplyExpenseControl
     {
-        public ApplyExpense Save(ApplyExpense expense)
+        public DTO.Creational.Builder.ApplyExpense Save(DTO.Creational.Builder.ApplyExpense expense)
         {
             if (expense != null)
                 expense.ApplyExpenseID = "AE010001";

@@ -1,7 +1,10 @@
 ﻿using hsdc.dpt.Control.Creational.Builder;
+using hsdc.dpt.Control.Creational.Builder.ApplyExpense;
+using hsdc.dpt.Control.Creational.Builder.Leave;
+using hsdc.dpt.Control.Creational.Builder.Overtime;
 using hsdc.dpt.Control.DTO.Creational.Builder;
-using System;
 using System.Web.Mvc;
+using WebMVC.ViewModels.Builder;
 
 namespace WebMVC.Controllers.Creational
 {
@@ -48,29 +51,54 @@ namespace WebMVC.Controllers.Creational
         public ActionResult NewOvertime()
         {
             OvertimeBuilder builder = new OvertimeBuilder();
+
             EOfficeDirector<OverTime> director = new EOfficeDirector<OverTime>();
+
             OverTime form = director.Construct(builder);
 
-            return View("NewOvertime", form);
+            NewOverTimeViewModel vm = ConverToViewModel(form);
+
+            return View("NewOvertime", vm);
         }
 
         [HttpPost]
-        public ActionResult NewOvertime(OverTime model)
+        public ActionResult NewOvertime(NewOverTimeViewModel model)
         {
             if (ModelState.IsValid == false) return View("NewOvertime", model);
 
-            SaveAOvertimeControl uco = new SaveAOvertimeControl();
-            model = uco.Save(model);
-            return View("NewOvertime", model);
-        }
-    }
+            OverTime dto = ConvertToDto(model);
 
-    public class SaveAOvertimeControl
-    {
-        public OverTime Save(OverTime model)
+            SaveOvertimeControl uco = new SaveOvertimeControl();
+
+            dto = uco.Save(dto);
+
+            NewOverTimeViewModel vm = ConverToViewModel(dto);
+
+            return View("NewOvertime", vm);
+        }
+
+        private static NewOverTimeViewModel ConverToViewModel(OverTime dto)
         {
-            model.OverTimeId = $"LE{DateTime.Now.Ticks}";
-            return model;
+            NewOverTimeViewModel vm = new NewOverTimeViewModel
+            {
+                OverTimeId = dto.OverTimeId,
+                Applier = dto.Applier,
+                ApplyDateTime = dto.ApplyDateTime,
+                OverTimeHour = dto.OverTimeHour
+            };
+            return vm;
+        }
+
+        private static OverTime ConvertToDto(NewOverTimeViewModel model)
+        {
+            OverTime dto = new OverTime
+            {
+                OverTimeId = model.OverTimeId,
+                Applier = model.Applier,
+                ApplyDateTime = model.ApplyDateTime,
+                OverTimeHour = model.OverTimeHour
+            };
+            return dto;
         }
     }
 }

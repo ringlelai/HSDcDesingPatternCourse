@@ -1,21 +1,21 @@
 ﻿using hsdc.dpt.Control.DTO.Creational.Builder;
 
-namespace hsdc.dpt.Control.Creational.Builder
+namespace hsdc.dpt.Control.Creational.Builder.Overtime
 {
-    public class LeaveBuilder : IOfficeFormBuilder<Leave>
+    public class OvertimeBuilder : IOfficeFormBuilder<OverTime>
     {
-        private Leave _dto = null;
+        private OverTime _dto;
 
         public void BuildMaster()
         {
-            _dto = new Leave();
+            _dto = new OverTime();
         }
 
         public void BuildDetails()
         {
         }
 
-        public Leave GetResult()
+        public OverTime GetResult()
         {
             return _dto;
         }

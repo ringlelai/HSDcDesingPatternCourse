@@ -1,6 +1,6 @@
 ﻿namespace hsdc.dpt.Control.Creational.Builder
 {
-    public interface IOfficeFormBuilder<T>
+    public interface IOfficeFormBuilder<out T>
     {
         void BuildMaster();
 

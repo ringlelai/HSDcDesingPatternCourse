@@ -1,6 +1,4 @@
-﻿using hsdc.dpt.Control.DTO.Creational.Builder;
-
-namespace hsdc.dpt.Control.Creational.Builder
+﻿namespace hsdc.dpt.Control.Creational.Builder
 {
     public class EOfficeDirector<T>
     {
