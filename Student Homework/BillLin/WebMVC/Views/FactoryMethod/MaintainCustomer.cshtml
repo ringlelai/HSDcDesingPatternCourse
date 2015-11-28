@@ -1,0 +1,44 @@
+﻿@model IEnumerable<hsdc.dpt.Control.DTO.Creational.FactoryMethod.Customer>
+
+@{
+    ViewBag.Title = "維護客戶資料";
+}
+
+<h2>維護客戶資料</h2>
+
+<p>
+    @Html.ActionLink("新增客戶", "CreateCustomer")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            客戶編號
+        </th>
+        <th>
+            客戶姓名
+        </th>
+        <th>
+            客戶聯絡人
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerContactPerson)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "EditCustomer", new { id=item.CustomerID }) |
+            @Html.ActionLink("刪除", "DeleteCustomer", new { id=item.CustomerID })
+        </td>
+    </tr>
+}
+
+</table>
