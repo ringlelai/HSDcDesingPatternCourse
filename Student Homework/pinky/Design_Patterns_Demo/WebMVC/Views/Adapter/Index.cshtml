@@ -1,0 +1,27 @@
+﻿@model List<hsdc.dpt.Control.DTO.Structual.Adapter.烏龜商品>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Adapter Pattern</h2>
+
+<h3>列出可訂購的烏龜清單</h3>
+<table cellpadding="5">
+    <thead>
+        <tr>
+            <th>編號</th>
+            <th>龜名</th>
+            <th>價錢</th>
+            <th>可訂購數量</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.price</td>
+            <td>@item.quantity</td>
+        </tr>
+    }
+</table>

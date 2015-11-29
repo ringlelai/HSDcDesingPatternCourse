@@ -1,0 +1,45 @@
+﻿@model hsdc.dpt.Control.DTO.Creational.Builder.Leave
+
+@{
+    ViewBag.Title = "新增請假單";
+}
+
+<h2>新增請假單</h2>
+
+@using (Html.BeginForm("SaveLeave", "Builder", FormMethod.Post, new { id = "frmSave" }))
+{
+    <table>
+        <tr>
+            <th>請假單號</th>
+            <td>@(Model.LeaveID == null ? "" : Model.LeaveID)</td>
+        </tr>
+        <tr>
+            <th>申請人</th>
+            <td>@Html.TextBoxFor(m => m.Applier)</td>
+        </tr>
+        <tr>
+            <th>申請類別</th>
+            <td>@Html.TextBoxFor(m => m.LeaveType)</td>
+        </tr>
+        <tr>
+            <th>申請日期</th>
+            <td>@Html.TextBoxFor(m => m.LeaveBeginDate)</td>
+        </tr>
+        <tr>
+            <th>總申請日</th>
+            <td>@Html.TextBoxFor(m => m.LeaveDay)</td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <button id="save">儲存</button>
+}
+
+@section BodyScripts
+{
+    <script>
+        $("#save").click(function () {
+            $("#frmSave").submit();
+        });
+    </script>
+}
