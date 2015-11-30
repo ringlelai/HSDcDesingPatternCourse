@@ -13,7 +13,8 @@ namespace WebMVC.Controllers.Creational
         // GET: HrmPayCalc
         public ActionResult Index()
         {
-            return View();
+            var control = new HrmPayRollCalcControl();
+            return View(control.GetPayStructure());
         }
 
         public ActionResult PayCalc()

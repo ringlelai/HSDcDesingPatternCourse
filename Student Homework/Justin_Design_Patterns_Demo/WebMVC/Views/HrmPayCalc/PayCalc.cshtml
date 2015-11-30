@@ -1,10 +1,10 @@
-﻿@model IEnumerable<hsdc.dpt.Control.DTO.Creational.FactoryMethod.PayItem>
+﻿@model IEnumerable<hsdc.dpt.Control.DTO.Creational.FactoryMethod.PayRoll>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "PayCalc";
 }
 
-<h2>薪資架構</h2>
+<h2>薪資條</h2>
 
 <table class="table">
     <tr>
@@ -15,10 +15,7 @@
             @Html.DisplayNameFor(model => model.PayItemName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.value)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PayRuleIditity)
+            @Html.DisplayNameFor(model => model.PayRollAmt)
         </th>
     </tr>
 
@@ -31,14 +28,10 @@
             @Html.DisplayFor(modelItem => item.PayItemName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.value)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PayRuleIditity)
+            @Html.DisplayFor(modelItem => item.PayRollAmt)
         </td>
     </tr>
 }
 
-    <p><a href="/HrmPayCalc/PayCalc">計算薪資</a></p>
 
 </table>
