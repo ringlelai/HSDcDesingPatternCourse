@@ -14,13 +14,13 @@ namespace WebMVC.Controllers.Structural
         // GET: Adapter
         public ActionResult Index()
         {
-            // new a control object.
+            // new a control object. //Controll
             查詢商品Control control = new 查詢商品Control();
 
-            // new a List<T> object.
+            // new a List<T> object. //Model
             List<烏龜商品> prodList = new List<烏龜商品>();
 
-            // 取得可訂購的烏龜清單
+            // 取得可訂購的烏龜清單 //從Controll取得清單
             prodList = control.get可訂購烏龜清單();
 
             //return View(DTO);
