@@ -94,6 +94,8 @@
     <Compile Include="Creational\Builder\EOfficeBuilderPattern.cs" />
     <Compile Include="Creational\Builder\SaveControl.cs" />
     <Compile Include="Creational\FactoryMethod\ErpFactoryMethodPattern.cs" />
+    <Compile Include="Creational\FactoryMethod\HrmFactoryMethodPatterm.cs" />
+    <Compile Include="Creational\FactoryMethod\HrmPayRollCalcControl.cs" />
     <Compile Include="Creational\FactoryMethod\Singleton.cs" />
     <Compile Include="Creational\Prototype\RingleERP\MaintainPurchaseOrderControl.cs" />
     <Compile Include="Creational\Prototype\RingleFramework\MaintainPurchaseConrol.cs" />
@@ -111,6 +113,7 @@
     <Compile Include="DTO\Creational\Builder\BuilderDto.cs" />
     <Compile Include="DTO\Creational\Builder\Interface.cs" />
     <Compile Include="DTO\Creational\FactoryMethod\FactoryMethodDto.cs" />
+    <Compile Include="DTO\Creational\FactoryMethod\HrmFactoryMethod.cs" />
     <Compile Include="DTO\Creational\Prototype\RingleERP\Interface.cs" />
     <Compile Include="DTO\Creational\Prototype\RingleERP\PrototypeDto.cs" />
     <Compile Include="DTO\Creational\Prototype\RingleFramework\Interface.cs" />
