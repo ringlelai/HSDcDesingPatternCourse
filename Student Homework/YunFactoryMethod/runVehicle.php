@@ -1,10 +1,9 @@
 <?php
 
-include_once('./controlCar.php');
-include_once('./controlBoat.php');
+include_once('./createVehicle.php');
 
-$car = new controlCar;
-$boat = new controlBoat;
+$car = createVehicle::createVehicle('controlCar');
+$boat = createVehicle::createVehicle('controlBoat');
 
 //start car
 $car->launchVehicle();
