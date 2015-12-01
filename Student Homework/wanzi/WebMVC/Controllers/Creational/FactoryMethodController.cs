@@ -1,10 +1,12 @@
 ﻿using hsdc.dpt.Control.Creational.FactoryMethod.Erp;
 using hsdc.dpt.Control.DTO.Creational.FactoryMethod;
+using hsdc.dpt.Control.Creational.FactoryMethod;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using hsdc.dpt.Control.Creational.FactoryMethod.Mail;
 
 namespace WebMVC.Controllers.Creational
 {
@@ -43,6 +45,19 @@ namespace WebMVC.Controllers.Creational
             List<Supplier> suppliers = uco.ListAll();
             return View("MaintainSupplier", suppliers);
         }
+
+        public void SendNotifyMail()
+        {
+            SendNotifyMailUco uco = new SendNotifyMailUco();
+            uco.send();
+        }
+
+        public void SendErrorMail()
+        {
+            SendErrorMailUco uco = new SendErrorMailUco();
+            uco.send();
+        }
+
         public ActionResult CreateSupplier()
         {
             return MaintainSupplier();

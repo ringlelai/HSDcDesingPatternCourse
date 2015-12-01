@@ -94,6 +94,7 @@
     <Compile Include="Creational\Builder\EOfficeBuilderPattern.cs" />
     <Compile Include="Creational\Builder\SaveControl.cs" />
     <Compile Include="Creational\FactoryMethod\ErpFactoryMethodPattern.cs" />
+    <Compile Include="Creational\FactoryMethod\MailSender.cs" />
     <Compile Include="Creational\FactoryMethod\Singleton.cs" />
     <Compile Include="Creational\Prototype\RingleERP\MaintainPurchaseOrderControl.cs" />
     <Compile Include="Creational\Prototype\RingleFramework\MaintainPurchaseConrol.cs" />
