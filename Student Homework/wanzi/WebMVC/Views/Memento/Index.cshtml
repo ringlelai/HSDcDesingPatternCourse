@@ -1,0 +1,61 @@
+﻿@model hsdc.dpt.Control.DTO.Behavioral.Memento.複合彩DTO
+
+@{
+    ViewBag.Title = "Index";
+    IEnumerable<SelectListItem> 成語選項 = new List<SelectListItem>{
+                       new SelectListItem() { Value = "晨星寥落" , Text = "晨星寥落", Selected = false},
+                       new SelectListItem() { Value = "明珠彈雀" , Text = "明珠彈雀", Selected = false},
+                       new SelectListItem() { Value = "尾生之信" , Text = "尾生之信", Selected = false},
+                       new SelectListItem() { Value = "遺大投艱" , Text = "遺大投艱", Selected = false},
+                       new SelectListItem() { Value = "人心不古" , Text = "人心不古", Selected = false}
+                    };
+    if ((Model != null) && (!string.IsNullOrEmpty(Model.成語字謎)))
+    {
+        成語選項.Where(w => w.Value.Equals(Model.成語字謎)).SingleOrDefault().Selected = true;
+    }
+}
+
+<h2>Memento Pattern</h2>
+<h3>複合彩選號服務系統</h3>
+<form name="frm複合彩選號服務" action="/Memento/SelectLotteService" method="post">
+    <input type="hidden" id="selectedvale" value="@(IsPost ? Model.成語字謎 : "")" />
+    <div>
+        <label for="LblFactory">彩券號碼：</label>
+        @{ if (IsPost)
+         {
+            @Html.TextBoxFor(model => model.彩券號碼, new { Value = @Model.彩券號碼 })
+         }
+         else
+         {
+            @Html.TextBoxFor(model => model.彩券號碼)
+         }
+        }
+    </div>
+    <div>
+        <label for="LblIdiom">成語字組：</label>
+
+        @Html.DropDownListFor(model => model.成語字謎, new SelectList(
+                  成語選項,
+                  "Value",
+                  "Text"
+                  ))
+
+
+    </div>
+    <br /><br />
+    <div>
+        <input type="Submit" name="Submit" value="自動選號" />
+        <input type="Submit" name="Submit" value="暫存本組複合彩" />
+        <input type="Submit" name="Submit" value="回復所選複合彩" />
+        <input type="Submit" name="Submit" value="列印選號" />
+    </div>
+</form>
+
+@{ if (IsPost)
+ {
+    <br /><br />
+    <div style="color:#0000FF">
+        <h3>@MvcHtmlString.Create(Html.Encode(ViewData["Result"]))</h3>
+    </div>
+ }
+}
