@@ -181,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
+    <None Include="FactoryPatternAssign-wanzi.eap" />
     <None Include="packages.config" />
     <None Include="Structural\Flyweight\Dao\CodeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
