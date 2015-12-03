@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "辦公室自動化系統";
+}
+
+<h2>辦公室自動化系統</h2>
+
+<button id="newLeave">新增請假單</button>
+<br />
+<br />
+<button id="newApplyExpense">新增費用申請單</button>
+
+@section BodyScripts
+{
+    <script>
+        $("#newLeave").click(function () {
+            window.location.href = "/Builder/NewLeave";
+        });
+        $("#newApplyExpense").click(function () {
+            window.location.href = "/Builder/NewApplyExpense";
+        });
+    </script>
+}
