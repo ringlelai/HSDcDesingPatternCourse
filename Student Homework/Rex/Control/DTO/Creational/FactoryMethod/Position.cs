@@ -2,8 +2,12 @@
 {
     public class Position
     {
-        private decimal Lat { get; set; }
+        public int Id { get; set; }
 
-        private decimal Lng { get; set; }
+        public string Name { get; set; }
+
+        public decimal Lat { get; set; }
+
+        public decimal Lng { get; set; }
     }
 }

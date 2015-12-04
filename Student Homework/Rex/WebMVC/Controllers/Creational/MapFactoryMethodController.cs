@@ -26,7 +26,7 @@ namespace WebMVC.Controllers.Creational
 
             GoogleMapViewModel vm = ConvertToViewModel(dto);
 
-            return View(dto.PageViewName, vm);
+            return View("GoogleMap", vm);
         }
 
         private static GoogleMapViewModel ConvertToViewModel(GoogleMapDto dto)
@@ -50,7 +50,7 @@ namespace WebMVC.Controllers.Creational
 
             var vm = ConvertToViewModel(dto);
 
-            return View(dto.PageViewName, vm);
+            return View("BingMap", vm);
         }
 
         private static BingMapViewModel ConvertToViewModel(BingMapDto dto)

@@ -221,7 +221,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Builder\NewOvertime.cshtml" />
     <Content Include="Views\MapFactoryMethod\Index.cshtml" />
-    <Content Include="Views\MapFactoryMethod\MapService.cshtml" />
+    <None Include="Views\MapFactoryMethod\BingMap.cshtml" />
+    <None Include="Views\MapFactoryMethod\GoogleMap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
