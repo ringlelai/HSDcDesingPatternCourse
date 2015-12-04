@@ -148,6 +148,7 @@
     <Compile Include="Controllers\Behavioral\VisitorController.cs" />
     <Compile Include="Controllers\Creational\AbstractFactoryController.cs" />
     <Compile Include="Controllers\Creational\FactoryMethodController.cs" />
+    <Compile Include="Controllers\Creational\MapFactoryMethodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Structural\AdapterController.cs" />
     <Compile Include="Controllers\Structural\ProxyController.cs" />
@@ -217,6 +218,8 @@
     <Content Include="Views\Visitor\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Builder\NewOvertime.cshtml" />
+    <Content Include="Views\MapFactoryMethod\Index.cshtml" />
+    <Content Include="Views\MapFactoryMethod\MapService.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
