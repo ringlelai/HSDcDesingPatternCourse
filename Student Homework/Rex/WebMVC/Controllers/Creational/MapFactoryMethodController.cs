@@ -1,49 +1,68 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using hsdc.dpt.Control.Creational.FactoryMethod;
+using hsdc.dpt.Control.DTO.Creational.FactoryMethod;
+using WebMVC.ViewModels.MapFactoryMethod;
 
 namespace WebMVC.Controllers.Creational
 {
     public class MapFactoryMethodController : Controller
     {
-        // GET: MapFactoryMethod
+        #region Map Index
+
         public ActionResult Index()
         {
             return View("Index");
         }
 
-        public ActionResult MapService()
+        #endregion Map Index
+
+        #region Google Map
+
+        public ActionResult GoogleMap(Position center)
         {
-            return View("MapService");
+            GoogleMapUco uco = new GoogleMapUco();
+
+            GoogleMapDto dto = uco.GetViewModel(center);
+
+            GoogleMapViewModel vm = ConvertToViewModel(dto);
+
+            return View(dto.PageViewName, vm);
         }
-    }
 
-    public interface IMapService<T>
-    {
-    }
+        private static GoogleMapViewModel ConvertToViewModel(GoogleMapDto dto)
+        {
+            return new GoogleMapViewModel
+            {
+                Center = dto.Center,
+                Markers = dto.Positions
+            };
+        }
 
-    //public class GoogleMapService : IMapService<>
-    //{
-    //}
+        #endregion Google Map
 
-    //public class BingMapService : IMapService<>
-    //{
-    //}
+        #region Bing Map
 
-    public interface ILocationMarker
-    {
-        string Id { get; set; }
+        public ActionResult BingMap(Position center)
+        {
+            BingMapUco uco = new BingMapUco();
 
-        string Name { get; set; }
+            BingMapDto dto = uco.GetViewModel(center);
 
-        decimal Lat { get; set; }
+            var vm = ConvertToViewModel(dto);
 
-        decimal Lng { get; set; }
-    }
+            return View(dto.PageViewName, vm);
+        }
 
-    public interface IMapView
-    {
-        IEnumerable<ILocationMarker> Markers { get; set; }
+        private static BingMapViewModel ConvertToViewModel(BingMapDto dto)
+        {
+            BingMapViewModel vm = new BingMapViewModel
+            {
+                Center = dto.Center,
+                Pushpins = dto.Positions
+            };
+            return vm;
+        }
 
-        string ViewName { get; set; }
+        #endregion Bing Map
     }
 }

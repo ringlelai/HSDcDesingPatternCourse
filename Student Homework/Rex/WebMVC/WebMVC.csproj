@@ -147,7 +147,9 @@
     <Compile Include="Controllers\Behavioral\TemplateMethodController.cs" />
     <Compile Include="Controllers\Behavioral\VisitorController.cs" />
     <Compile Include="Controllers\Creational\AbstractFactoryController.cs" />
+    <Compile Include="ViewModels\MapFactoryMethod\BingMapViewModel.cs" />
     <Compile Include="Controllers\Creational\FactoryMethodController.cs" />
+    <Compile Include="ViewModels\MapFactoryMethod\GoogleMapViewModel.cs" />
     <Compile Include="Controllers\Creational\MapFactoryMethodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Structural\AdapterController.cs" />
