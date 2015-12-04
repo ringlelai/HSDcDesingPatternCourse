@@ -81,6 +81,8 @@
     <Compile Include="Creational\FactoryMethod\BingMapUco.cs" />
     <Compile Include="Creational\FactoryMethod\GoogleMapUco.cs" />
     <Compile Include="Creational\FactoryMethod\IMapUcoCreator.cs" />
+    <Compile Include="Creational\FactoryMethod\MapSampleDataContext.cs" />
+    <Compile Include="Creational\FactoryMethod\MapSampleDataDao.cs" />
     <Compile Include="DTO\Creational\FactoryMethod\BingMapDto.cs" />
     <Compile Include="DTO\Creational\Builder\ApplyExpense.cs" />
     <Compile Include="DTO\Creational\Builder\ApplyExpenseDetail.cs" />

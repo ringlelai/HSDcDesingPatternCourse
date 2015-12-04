@@ -2,7 +2,7 @@
 {
     public interface ILocationMarker
     {
-        string Id { get; set; }
+        int Id { get; set; }
 
         string Name { get; set; }
 

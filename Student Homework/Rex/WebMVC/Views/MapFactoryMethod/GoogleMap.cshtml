@@ -1,4 +1,5 @@
-﻿@model WebMVC.ViewModels.MapFactoryMethod.GoogleMapViewModel
+﻿@using hsdc.dpt.Control.DTO.Creational.FactoryMethod
+@model WebMVC.ViewModels.MapFactoryMethod.GoogleMapViewModel
 
 @{
     ViewBag.Title = "GoogleMap";
@@ -10,7 +11,20 @@
         <div class="row">
             <h2>@ViewBag.Title</h2>
         </div>
+
         <div class="row">
+
+            @{
+
+                foreach (Marker marker in @Model.Markers)
+                {
+                    <div class="col col-md-1">@marker.Id</div>
+                    <div class="col col-md-3">@marker.Name</div>
+                    <div class="col col-md-4">@marker.Lat</div>
+                    <div class="col col-md-4">@marker.Lng</div>
+                }
+
+            }
         </div>
     </div>
 </section>

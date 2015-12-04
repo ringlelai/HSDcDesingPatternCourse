@@ -189,7 +189,7 @@
     <Content Include="Views\Builder\Index.cshtml" />
     <Content Include="Views\Builder\NewLeave.cshtml" />
     <Content Include="Views\Builder\NewApplyExpense.cshtml" />
-    <Content Include="Views\Bridge\Index.cshtml" />
+    <Content Include="Views\Builder\Bridge\Index.cshtml" />
     <Content Include="Views\Composite\Index.cshtml" />
     <Content Include="Views\Decorator\Index.cshtml" />
     <Content Include="Views\Flyweight\Index.cshtml" />
@@ -208,7 +208,7 @@
     <Content Include="Views\AbstractFactory\ListWorkItems.cshtml" />
     <Content Include="Views\AbstractFactory\Process.cshtml" />
     <Content Include="Views\Adapter\Index.cshtml" />
-    <Content Include="Views\Bridge\Notify.cshtml" />
+    <Content Include="Views\Builder\Bridge\Notify.cshtml" />
     <Content Include="Views\CoR\Index.cshtml" />
     <Content Include="Views\Facade\AddToCart.cshtml" />
     <Content Include="Views\Facade\Checkout.cshtml" />
