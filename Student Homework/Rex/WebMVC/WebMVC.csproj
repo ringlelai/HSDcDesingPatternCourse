@@ -147,7 +147,10 @@
     <Compile Include="Controllers\Behavioral\TemplateMethodController.cs" />
     <Compile Include="Controllers\Behavioral\VisitorController.cs" />
     <Compile Include="Controllers\Creational\AbstractFactoryController.cs" />
+    <Compile Include="ViewModels\MapFactoryMethod\BingMapViewModel.cs" />
     <Compile Include="Controllers\Creational\FactoryMethodController.cs" />
+    <Compile Include="ViewModels\MapFactoryMethod\GoogleMapViewModel.cs" />
+    <Compile Include="Controllers\Creational\MapFactoryMethodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Structural\AdapterController.cs" />
     <Compile Include="Controllers\Structural\ProxyController.cs" />
@@ -186,7 +189,7 @@
     <Content Include="Views\Builder\Index.cshtml" />
     <Content Include="Views\Builder\NewLeave.cshtml" />
     <Content Include="Views\Builder\NewApplyExpense.cshtml" />
-    <Content Include="Views\Bridge\Index.cshtml" />
+    <Content Include="Views\Builder\Bridge\Index.cshtml" />
     <Content Include="Views\Composite\Index.cshtml" />
     <Content Include="Views\Decorator\Index.cshtml" />
     <Content Include="Views\Flyweight\Index.cshtml" />
@@ -205,7 +208,7 @@
     <Content Include="Views\AbstractFactory\ListWorkItems.cshtml" />
     <Content Include="Views\AbstractFactory\Process.cshtml" />
     <Content Include="Views\Adapter\Index.cshtml" />
-    <Content Include="Views\Bridge\Notify.cshtml" />
+    <Content Include="Views\Builder\Bridge\Notify.cshtml" />
     <Content Include="Views\CoR\Index.cshtml" />
     <Content Include="Views\Facade\AddToCart.cshtml" />
     <Content Include="Views\Facade\Checkout.cshtml" />
@@ -217,6 +220,9 @@
     <Content Include="Views\Visitor\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Builder\NewOvertime.cshtml" />
+    <Content Include="Views\MapFactoryMethod\Index.cshtml" />
+    <None Include="Views\MapFactoryMethod\BingMap.cshtml" />
+    <None Include="Views\MapFactoryMethod\GoogleMap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

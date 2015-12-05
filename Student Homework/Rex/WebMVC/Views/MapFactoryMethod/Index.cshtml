@@ -1,0 +1,23 @@
+﻿@section Css{
+    <style>
+        #MapListDiv .row {
+            margin: 8px;
+        }
+    </style>
+
+}
+<section>
+    <div class="container">
+        <div class="row">
+            <h2>Map Service List</h2>
+        </div>
+        <div id="MapListDiv">
+            <div class="row">
+                <a class="btn btn-default" href="@Url.Action("GoogleMap", "MapFactoryMethod") ">Google Map</a>
+            </div>
+            <div class="row">
+                <a class="btn btn-default" href="@Url.Action("BingMap", "MapFactoryMethod")">Bing Map</a>
+            </div>
+        </div>
+    </div>
+</section>
