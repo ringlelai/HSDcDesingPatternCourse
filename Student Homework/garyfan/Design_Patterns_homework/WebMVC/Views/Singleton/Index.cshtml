@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "ID Generator";
+}
+
+<h2>ID Generator</h2>
+
+<table>
+    <tr>
+        <th>請輸入表單類別</th>
+        <td><input type="text" id="formType" value="" /></td>
+    </tr>
+    <tr>
+        <th>產生的編號為:</th>
+        <td><input type="text" id="formID" value="" readonly="readonly" /></td>
+    </tr>
+</table>
+<br />
+<br />
+<button id="genId">產生編號</button>
+
+@section BodyScripts
+{
+    <script>
+        $("#genId").click(function () {
+            var inputdata = {formType : $('#formType').val()};
+            $.ajax({
+                type: 'GET',
+                url: '/Singleton/GenID',
+                datatype: 'application/json',
+                data: inputdata,
+                async: false,
+                success: function (data) {
+                    $("#formID").val(data);
+                }
+            });
+        });
+    </script>
+}
