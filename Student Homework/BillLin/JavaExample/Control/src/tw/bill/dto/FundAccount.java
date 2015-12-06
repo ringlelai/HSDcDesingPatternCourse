@@ -1,6 +1,13 @@
 package tw.bill.dto;
 
 public class FundAccount {
+	private String id;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	private String accountNo;
 	private String accountName;
 	private String currencyType;
