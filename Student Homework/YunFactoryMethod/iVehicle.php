@@ -1,9 +1,9 @@
 <?php
-interface iControlVehicle{
-	public function launchVehicle();
+interface iVehicle{
+	public function launch();
 	public function left();
 	public function right();
 	public function forward();
 	public function back();
-	public function stopVehicle();
+	public function stop();
 }

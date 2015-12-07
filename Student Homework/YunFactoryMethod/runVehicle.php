@@ -2,21 +2,8 @@
 
 include_once('./createVehicle.php');
 
-$car = createVehicle::createVehicle('controlCar');
-$boat = createVehicle::createVehicle('controlBoat');
-
-//start car
-$car->launchVehicle();
-$car->left();
-$car->right();
-$car->forward();
-$car->back();
-$car->stopVehicle();
-
-//start boat
-$boat->launchVehicle();
-$boat->left();
-$boat->right();
-$boat->forward();
-$boat->back();
-$boat->stopVehicle();
+$vehicle = new createVehicle();
+$vehicle->newVehicle(new controlBoat());
+$vehicle->autoTest();
+$vehicle->newVehicle(new controlCar());
+$vehicle->autoTest();
