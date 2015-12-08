@@ -1,8 +1,8 @@
 <?php
 
-include_once('./iControlVehicle.php');
-class controlBoat implements iControlVehicle{
-	public function launchVehicle(){
+include_once('./iVehicle.php');
+class controlBoat implements iVehicle{
+	public function launch(){
 		echo "Boat launchs.".PHP_EOL;	
 	}
 	public function left(){
@@ -17,7 +17,7 @@ class controlBoat implements iControlVehicle{
 	public function back(){
 		echo "Boat back.".PHP_EOL;
 	}
-	public function stopVehicle(){
+	public function stop(){
 		echo "Boat stop.".PHP_EOL;
 	}
 }
