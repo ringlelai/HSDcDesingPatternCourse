@@ -130,8 +130,14 @@
     <Compile Include="DTO\Structual\Facade\烏龜商品.cs" />
     <Compile Include="DTO\Structual\Flyweight\FlyweightDto.cs" />
     <Compile Include="DTO\Structual\Flyweight\Interface.cs" />
+    <Compile Include="DTO\Structual\Adapter\HotelsCombinedDto.cs" />
     <Compile Include="DTO\Structual\Proxy\EZTravelDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structural\AdapterHotelsCombined\HotelsCombinedControl.cs" />
+    <Compile Include="Structural\AdapterHotelsCombined\HotelsCombinedAdapter.cs" />
+    <Compile Include="Structural\AdapterHotelsCombined\IHotelsCombinedAdapter.cs" />
+    <Compile Include="Structural\AdapterHotelsCombined\TravelSites\TravelSiteOne.cs" />
+    <Compile Include="Structural\AdapterHotelsCombined\TravelSites\TravelSiteTwo.cs" />
     <Compile Include="Structural\Adapter\Get存貨Adapter.cs" />
     <Compile Include="Structural\Adapter\IGet存貨資訊.cs" />
     <Compile Include="Structural\Adapter\供應商系統\OrderSystem.cs" />
@@ -170,10 +176,9 @@
     </Compile>
     <Compile Include="Structural\Flyweight\FlyweightPattern.cs" />
     <Compile Include="Structural\ProxyEZTravel\EZTraveInControl.cs" />
-    <Compile Include="Structural\ProxyEZTravel\EZTravelnformerTwo.cs" />
-    <Compile Include="Structural\ProxyEZTravel\EZTravelnformerOne.cs" />
+    <Compile Include="Structural\ProxyEZTravel\Hotels\EZTravelnformerTwo.cs" />
+    <Compile Include="Structural\ProxyEZTravel\Hotels\EZTravelnformerOne.cs" />
     <Compile Include="Structural\ProxyEZTravel\EZTravelProxy.cs" />
-    <Compile Include="Structural\ProxyEZTravel\IEZTravelDto.cs" />
     <Compile Include="Structural\ProxyEZTravel\IEZTravelProxy.cs" />
     <Compile Include="Structural\Proxy\I龜庫接口.cs" />
     <Compile Include="Structural\Proxy\販售服務Control.cs" />

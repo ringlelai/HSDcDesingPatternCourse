@@ -151,6 +151,8 @@
     <Compile Include="Controllers\Creational\HrmPayCalcController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Structural\AdapterController.cs" />
+    <Compile Include="Controllers\Structural\AdapterHotelsCombinedController.cs" />
+    <Compile Include="Controllers\Structural\HotelsCombinedController.cs" />
     <Compile Include="Controllers\Structural\ProxyController.cs" />
     <Compile Include="Controllers\Structural\ProxyEZTravelController.cs" />
     <Compile Include="Hubs.cs" />
@@ -222,6 +224,8 @@
     <Content Include="Views\HrmPayCalc\Index.cshtml" />
     <Content Include="Views\ProxyEZTravel\GetHotels.cshtml" />
     <Content Include="Views\ProxyEZTravel\Index.cshtml" />
+    <Content Include="Views\AdapterHotelsCombined\Index.cshtml" />
+    <Content Include="Views\AdapterHotelsCombined\GetHotels.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

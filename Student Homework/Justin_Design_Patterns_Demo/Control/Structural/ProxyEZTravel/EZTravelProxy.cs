@@ -29,7 +29,10 @@ namespace hsdc.dpt.Control.Structural.Proxyhotelscombined
             {
                 hotelsInfoList = hotelsInfoList.Where(a => a.Address.Contains(info.Address)).ToList();
             }
-
+            if (!string.IsNullOrEmpty(info.GuestsRooms))
+            {
+                hotelsInfoList = hotelsInfoList.Where(a => a.GuestsRooms.Contains(info.GuestsRooms)).ToList();
+            }
             return hotelsInfoList;
         }
     }
