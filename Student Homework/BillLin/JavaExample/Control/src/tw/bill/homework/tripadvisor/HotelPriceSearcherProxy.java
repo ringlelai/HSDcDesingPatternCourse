@@ -2,7 +2,7 @@ package tw.bill.homework.tripadvisor;
 
 import tw.bill.dto.Hotel;
 
-public class HotelPriceSearcherProxy implements IHotelPriceSearcher {
+class HotelPriceSearcherProxy implements IHotelPriceSearcher {
 	
 	@Override
 	public void updateHotelPrice(Hotel hotel) {

@@ -2,7 +2,7 @@ package tw.bill.homework.etravel;
 
 import tw.bill.dto.Hotel;
 
-public class WHotelAdpatee implements IHotelAdapter{
+class WHotelAdpatee implements IHotelAdapter{
 
 	@Override
 	public Hotel getHotelInfo() {

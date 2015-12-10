@@ -1,4 +1,4 @@
-package tw.bill.homework.comebuy;
+package tw.bill.homework.hotel;
 
 import java.util.List;
 
