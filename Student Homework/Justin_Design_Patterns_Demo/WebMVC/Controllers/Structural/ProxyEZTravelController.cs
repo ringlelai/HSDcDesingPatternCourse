@@ -1,4 +1,6 @@
-﻿using System;
+﻿using hsdc.dpt.Control.DTO.Structual.Proxy;
+using hsdc.dpt.Control.Structural.ProxyEZTravel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +14,14 @@ namespace WebMVC.Controllers.Structural
         public ActionResult Index()
         {
             return View();
+        }   
+
+        [HttpPost]
+        public ActionResult GetHotels(HotelsInfo info)
+        {
+            var control = new EZTraveInControl();
+            var list = control.GetHotelsInfo(info);
+            return View(list);
         }
     }
 }

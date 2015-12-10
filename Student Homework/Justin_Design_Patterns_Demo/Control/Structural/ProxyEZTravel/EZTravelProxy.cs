@@ -25,6 +25,10 @@ namespace hsdc.dpt.Control.Structural.Proxyhotelscombined
             var hotelsInfoList2 = ez2.GetHotelsInfo(info);
             hotelsInfoList.AddRange(hotelsInfoList1);
             hotelsInfoList.AddRange(hotelsInfoList2);
+            if (info.Address.Length > 0)
+            {
+                hotelsInfoList = hotelsInfoList.Where(a => a.Address.Contains(info.Address)).ToList();
+            }
 
             return hotelsInfoList;
         }

@@ -220,6 +220,8 @@
     <Content Include="Views\Builder\NewBugIssue.cshtml" />
     <Content Include="Views\HrmPayCalc\PayCalc.cshtml" />
     <Content Include="Views\HrmPayCalc\Index.cshtml" />
+    <Content Include="Views\ProxyEZTravel\GetHotels.cshtml" />
+    <Content Include="Views\ProxyEZTravel\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -230,7 +232,6 @@
   <ItemGroup>
     <Folder Include="Hubs\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\ProxyEZTravel\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Control\Control.csproj">
