@@ -130,6 +130,7 @@
     <Compile Include="DTO\Structual\Facade\烏龜商品.cs" />
     <Compile Include="DTO\Structual\Flyweight\FlyweightDto.cs" />
     <Compile Include="DTO\Structual\Flyweight\Interface.cs" />
+    <Compile Include="DTO\Structual\Proxy\EZTravelDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structural\Adapter\Get存貨Adapter.cs" />
     <Compile Include="Structural\Adapter\IGet存貨資訊.cs" />
@@ -168,6 +169,12 @@
       <DependentUpon>CodeModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Structural\Flyweight\FlyweightPattern.cs" />
+    <Compile Include="Structural\ProxyEZTravel\EZTraveInControl.cs" />
+    <Compile Include="Structural\ProxyEZTravel\EZTravelnformerTwo.cs" />
+    <Compile Include="Structural\ProxyEZTravel\EZTravelnformerOne.cs" />
+    <Compile Include="Structural\ProxyEZTravel\EZTravelProxy.cs" />
+    <Compile Include="Structural\ProxyEZTravel\IEZTravelDto.cs" />
+    <Compile Include="Structural\ProxyEZTravel\IEZTravelProxy.cs" />
     <Compile Include="Structural\Proxy\I龜庫接口.cs" />
     <Compile Include="Structural\Proxy\販售服務Control.cs" />
     <Compile Include="Structural\Proxy\龜庫Informer.cs" />

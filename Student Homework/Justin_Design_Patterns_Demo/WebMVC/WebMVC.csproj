@@ -152,6 +152,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Structural\AdapterController.cs" />
     <Compile Include="Controllers\Structural\ProxyController.cs" />
+    <Compile Include="Controllers\Structural\ProxyEZTravelController.cs" />
     <Compile Include="Hubs.cs" />
     <Compile Include="Controllers\Creational\BuilderController.cs" />
     <Compile Include="Controllers\Creational\SingletonController.cs" />
@@ -229,6 +230,7 @@
   <ItemGroup>
     <Folder Include="Hubs\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\ProxyEZTravel\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Control\Control.csproj">
