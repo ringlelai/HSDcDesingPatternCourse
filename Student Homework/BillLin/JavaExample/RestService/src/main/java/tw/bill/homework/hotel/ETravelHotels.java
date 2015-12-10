@@ -1,5 +1,6 @@
 package tw.bill.homework.hotel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,14 +16,14 @@ public class ETravelHotels {
 
 	@RequestMapping(value="/ETravel/Hotels", method=RequestMethod.GET)
 	public List<Hotel> fetchHotels(@RequestParam(required=true, value="") String keyword) {
-		ETravalService service = new ETravalService();
-		List<Hotel> results = null;
+		List<Hotel> results;
 		
 		try {
+			ETravalService service = new ETravalService();
 			results = service.fetchHotels(keyword);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// TODO: Need to implement the message wrapper
+			results = new ArrayList<Hotel>();
 		}
 		
 		return results;

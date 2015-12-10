@@ -8,7 +8,7 @@ import tw.bill.dto.Hotel;
 
 public class ETravalService {
 
-	public List<Hotel> fetchHotels(String keyword) throws Exception {
+	public List<Hotel> fetchHotels(String keyword) {
 		List<String> hotelNames = LocalDb.fetchHotelNames(keyword);
 		List<Hotel> results = new ArrayList<>();
 		
@@ -22,7 +22,7 @@ public class ETravalService {
 				adapter = new WHotelAdpatee();
 				break;
 			default:
-				throw new Exception("Not implement this Hotel type");
+				throw new RuntimeException("Not implement this Hotel type");
 			}
 			
 			setupHotelInfo(results, adapter);
