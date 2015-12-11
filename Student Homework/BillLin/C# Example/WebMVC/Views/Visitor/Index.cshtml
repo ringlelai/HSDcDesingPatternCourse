@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Visitor Pattern</h2>
+<div>
+    @Html.ActionLink("計算本月公司應支付金額", "CalcTotalPrice")
+    &nbsp;&nbsp;&nbsp;
+    @Html.ActionLink("統計員工與辦公室總數", "CalcInventory")
+</div><br/>
+<div>
+    @MvcHtmlString.Create(Html.Encode(ViewData["ProcssResult"]).Replace("\n", "<br />"))
+</div>
