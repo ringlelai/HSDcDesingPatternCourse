@@ -15,11 +15,16 @@ namespace hsdc.dpt.Control.Structural.Adapter
     public class AgodaAdapter : IGetHotel
     {
         private string sourceName = "Agoda.com";
+        private AgodaSystem agodaSystem;
+
+        public AgodaAdapter()
+        {
+            this.agodaSystem = new AgodaSystem();
+        }
 
         public List<Hotel> getHotelList()
         {
-            AgodaSystem agodaSystem = new AgodaSystem();
-            string xml = agodaSystem.getHotelsXml();
+            string xml = this.agodaSystem.getHotelsXml();
             return this.processXml(xml);
         }
 
@@ -45,11 +50,16 @@ namespace hsdc.dpt.Control.Structural.Adapter
     public class BookingAdapter : IGetHotel
     {
         private string sourceName = "Booking.com";
+        private BookingSystem bookingSystem;
+
+        public BookingAdapter()
+        {
+            this.bookingSystem = new BookingSystem();
+        }
 
         public List<Hotel> getHotelList()
         {
-            BookingSystem bookingSystem = new BookingSystem();
-            List<BookingHotel> bookingHotels = bookingSystem.getBookingHotelList();
+            List<BookingHotel> bookingHotels = this.bookingSystem.getBookingHotelList();
             return this.processBookingHotels(bookingHotels);
         }
 
