@@ -1,0 +1,23 @@
+﻿@using WebMVC.ViewModels.Homework3
+@model List<WebMVC.ViewModels.Homework3.RestaurantViewModel>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <h2>Homework 3</h2>
+        </div>
+        <div class="row">
+            <a class="btn btn-default" href="@Url.Action("Level1")"> Level 1</a>
+        </div>
+        <div class="row">
+            <a class="btn btn-default" href="@Url.Action("Level2")"> Level 2</a>
+        </div>
+    </div>
+</section>
+
+@section Css{
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="~/Content/Homework3/style.css" rel="stylesheet" />
+    <link href="~/Content/Homework3/flat-ui.css" rel="stylesheet" />
+    <link href="~/Content/Homework3/style.complete.css" rel="stylesheet" />
+}
