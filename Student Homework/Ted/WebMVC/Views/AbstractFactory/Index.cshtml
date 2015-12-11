@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Abstract Factory Pattern</h2>
+<h3>選擇目錄服務</h3>
+<form name="frmSelectDirectoryService" action="/AbstractFactory/SelectDirectoryService" method="get">
+    <div>
+        <label for="LblFactory">使用目錄服務 (Directory Service)：</label>
+        <select id="selDirectoryService" name="selDirectoryService">
+            <option value="LDAP">LDAP</option>
+            <option value="LocalDB">LocalDB</option>
+        </select><br />
+    </div>
+    <br />
+    <div>
+        <input type="Submit" name="SubmitAdd" value="送出" />
+    </div>
+</form>

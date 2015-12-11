@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D3CF315B-8512-49C8-AC29-B81447E0260F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>hsdc.dpt.Control</RootNamespace>
+    <AssemblyName>Control</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Behavioral\Command\CaculatorCommand.cs" />
+    <Compile Include="Behavioral\CoR\ConcreteDonateHandler.cs" />
+    <Compile Include="Behavioral\CoR\DonateHandler.cs" />
+    <Compile Include="Behavioral\CoR\procDonateControl.cs" />
+    <Compile Include="Behavioral\Interpreter\MoneyInterpreter.cs" />
+    <Compile Include="Behavioral\Mediator\Singleton.cs" />
+    <Compile Include="Behavioral\Mediator\Interface.cs" />
+    <Compile Include="Behavioral\Mediator\OnlineStoreMediatorPattern.cs" />
+    <Compile Include="Behavioral\Mediator\StockingUco.cs" />
+    <Compile Include="Behavioral\Memento\管理博彩Control.cs" />
+    <Compile Include="Behavioral\Memento\複合彩.cs" />
+    <Compile Include="Behavioral\Memento\複合彩Caretaker.cs" />
+    <Compile Include="Behavioral\Memento\複合彩Memento.cs" />
+    <Compile Include="Behavioral\Observer\ConcreteObservers.cs" />
+    <Compile Include="Behavioral\Observer\IObserver.cs" />
+    <Compile Include="Behavioral\Observer\IPublisher.cs" />
+    <Compile Include="Behavioral\Observer\ManageNewsControl.cs" />
+    <Compile Include="Behavioral\Observer\NewsPublisher.cs" />
+    <Compile Include="Behavioral\State\1_SwitchIfThenElse\OrderState_SwitchCase.cs" />
+    <Compile Include="Behavioral\State\2_Refactoring\ConcreteStateClass.cs" />
+    <Compile Include="Behavioral\State\2_Refactoring\IOrderState.cs" />
+    <Compile Include="Behavioral\State\2_Refactoring\OrderStateContext.cs" />
+    <Compile Include="Behavioral\State\TrackOrderControl.cs" />
+    <Compile Include="Behavioral\Strategy\IStrategy.cs" />
+    <Compile Include="Behavioral\Strategy\PlaceOrderControl.cs" />
+    <Compile Include="Behavioral\Strategy\RSI指標Strategy.cs" />
+    <Compile Include="Behavioral\Strategy\StrategyContext.cs" />
+    <Compile Include="Behavioral\Strategy\黃金交叉Strategy.cs" />
+    <Compile Include="Behavioral\TemplateMethod\InsurancePolicyTransationTemplateMethodPattern.cs" />
+    <Compile Include="Behavioral\TemplateMethod\PolicyTransactionUco.cs" />
+    <Compile Include="Behavioral\TemplateMethod\Singleton.cs" />
+    <Compile Include="Behavioral\Visitor\ConcreteElements.cs" />
+    <Compile Include="Behavioral\Visitor\ConcreteVisitors.cs" />
+    <Compile Include="Behavioral\Visitor\IElement.cs" />
+    <Compile Include="Behavioral\Visitor\ManageHRControl.cs" />
+    <Compile Include="Behavioral\Visitor\Visitor.cs" />
+    <Compile Include="Creational\AbstractoryFactory\AbstractFactory.cs" />
+    <Compile Include="Creational\AbstractoryFactory\ConcreteFactory.cs" />
+    <Compile Include="Creational\AbstractoryFactory\LDAPParticipant.cs" />
+    <Compile Include="Creational\AbstractoryFactory\LocalDBParticipant.cs" />
+    <Compile Include="Creational\AbstractoryFactory\Participant.cs" />
+    <Compile Include="Creational\AbstractoryFactory\WorkItem.cs" />
+    <Compile Include="Creational\AbstractoryFactory\管理工作單Control.cs" />
+    <Compile Include="Creational\Builder\EOfficeBuilderPattern.cs" />
+    <Compile Include="Creational\Builder\SaveControl.cs" />
+    <Compile Include="Creational\FactoryMethod\ErpFactoryMethodPattern.cs" />
+    <Compile Include="Creational\FactoryMethod\Singleton.cs" />
+    <Compile Include="Creational\Prototype\RingleERP\MaintainPurchaseOrderControl.cs" />
+    <Compile Include="Creational\Prototype\RingleFramework\MaintainPurchaseConrol.cs" />
+    <Compile Include="Creational\Singleton\IDGeneratorSingleton.cs" />
+    <Compile Include="DTO\Behavioral\CoR\CustomExceptions.cs" />
+    <Compile Include="DTO\Behavioral\CoR\DonateType.cs" />
+    <Compile Include="DTO\Behavioral\CoR\Donation.cs" />
+    <Compile Include="DTO\Behavioral\Interpreter\InterpreterDto.cs" />
+    <Compile Include="DTO\Behavioral\Mediator\MediatorDto.cs" />
+    <Compile Include="DTO\Behavioral\Memento\複合彩DTO.cs" />
+    <Compile Include="DTO\Behavioral\Strategy\StrategyEnum.cs" />
+    <Compile Include="DTO\Behavioral\TemplateMethod\TemplateMethodDto.cs" />
+    <Compile Include="DTO\Creational\AbstractFactory\ParticipantFactoryEnum.cs" />
+    <Compile Include="DTO\Creational\AbstractFactory\WorkItemDTO.cs" />
+    <Compile Include="DTO\Creational\Builder\BuilderDto.cs" />
+    <Compile Include="DTO\Creational\Builder\Interface.cs" />
+    <Compile Include="DTO\Creational\FactoryMethod\FactoryMethodDto.cs" />
+    <Compile Include="DTO\Creational\Prototype\RingleERP\Interface.cs" />
+    <Compile Include="DTO\Creational\Prototype\RingleERP\PrototypeDto.cs" />
+    <Compile Include="DTO\Creational\Prototype\RingleFramework\Interface.cs" />
+    <Compile Include="DTO\Creational\Prototype\RingleFramework\PrototypeDto.cs" />
+    <Compile Include="DTO\Creational\Singleton\SingletonDto.cs" />
+    <Compile Include="DTO\Structual\Adapter\烏龜商品.cs" />
+    <Compile Include="DTO\Structual\Bridge\BridgeDto.cs" />
+    <Compile Include="DTO\Structual\Bridge\Enums.cs" />
+    <Compile Include="DTO\Structual\Bridge\Interface.cs" />
+    <Compile Include="DTO\Structual\Bridge\Message.cs" />
+    <Compile Include="DTO\Structual\Composite\CompositeDto.cs" />
+    <Compile Include="DTO\Structual\Decorator\DecoratorDto.cs" />
+    <Compile Include="DTO\Structual\Decorator\Interface.cs" />
+    <Compile Include="DTO\Structual\Facade\烏龜商品.cs" />
+    <Compile Include="DTO\Structual\Flyweight\FlyweightDto.cs" />
+    <Compile Include="DTO\Structual\Flyweight\Interface.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structural\Adapter\Get存貨Adapter.cs" />
+    <Compile Include="Structural\Adapter\IGet存貨資訊.cs" />
+    <Compile Include="Structural\Adapter\供應商系統\OrderSystem.cs" />
+    <Compile Include="Structural\Adapter\查詢商品Control.cs" />
+    <Compile Include="Structural\Bridge\EmailSender.cs" />
+    <Compile Include="Structural\Bridge\IMessageSender.cs" />
+    <Compile Include="Structural\Bridge\LineSender.cs" />
+    <Compile Include="Structural\Bridge\Notifier.cs" />
+    <Compile Include="Structural\Bridge\SystemNotifier.cs" />
+    <Compile Include="Structural\Bridge\UserNotifier.cs" />
+    <Compile Include="Structural\Bridge\傳送訊息DemoControl.cs" />
+    <Compile Include="Structural\Composite\RingelOrgControl.cs" />
+    <Compile Include="Structural\Composite\RingleOrgCompositePattern.cs" />
+    <Compile Include="Structural\Decorator\ConcreteComponent.cs" />
+    <Compile Include="Structural\Decorator\DecoratorPattern.cs" />
+    <Compile Include="Structural\Facade\烏龜BMO.cs" />
+    <Compile Include="Structural\Facade\買烏龜Control.cs" />
+    <Compile Include="Structural\Flyweight\Dao\Code.cs">
+      <DependentUpon>CodeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Structural\Flyweight\Dao\CodeDao.cs" />
+    <Compile Include="Structural\Flyweight\Dao\CodeModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CodeModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Structural\Flyweight\Dao\CodeModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CodeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Structural\Flyweight\Dao\CodeModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CodeModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Structural\Flyweight\FlyweightPattern.cs" />
+    <Compile Include="Structural\Proxy\I龜庫接口.cs" />
+    <Compile Include="Structural\Proxy\販售服務Control.cs" />
+    <Compile Include="Structural\Proxy\龜庫Informer.cs" />
+    <Compile Include="Structural\Proxy\龜庫Proxy.cs" />
+    <Compile Include="Utility\EnumUtils.cs" />
+    <Compile Include="Utility\ObjectCreator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Structural\Flyweight\Dao\CodeModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CodeModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="Structural\Flyweight\Dao\CodeModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CodeModel.edmx</DependentUpon>
+      <LastGenOutput>CodeModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Structural\Flyweight\Dao\CodeModel.edmx.diagram">
+      <DependentUpon>CodeModel.edmx</DependentUpon>
+    </None>
+    <None Include="Structural\Flyweight\Dao\CodeModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CodeModel.edmx</DependentUpon>
+      <LastGenOutput>CodeModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

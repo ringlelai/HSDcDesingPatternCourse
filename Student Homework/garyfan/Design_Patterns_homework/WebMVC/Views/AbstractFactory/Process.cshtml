@@ -1,0 +1,7 @@
+﻿
+@{
+    ViewBag.Title = "Process";
+}
+
+<h2>處理結果</h2>
+<h3>@MvcHtmlString.Create(Html.Encode(ViewData["result"]).Replace("\n", "<br />"))</h3>

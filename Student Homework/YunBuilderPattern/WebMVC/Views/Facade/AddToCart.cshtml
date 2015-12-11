@@ -1,0 +1,32 @@
+﻿@model hsdc.dpt.Control.DTO.ShoppingCart
+
+@{
+    ViewBag.Title = "AddToCart";
+}
+
+<h2>購物車資訊</h2>
+<form name="frmCheckout" action="/Facade/Checkout" method="post">
+    <table cellpadding="5">
+        <thead>
+            <tr>
+                <th>編號</th>
+                <th>龜名</th>
+                <th>價錢</th>
+                <th>購買數量</th>                
+            </tr>
+        </thead>
+        @foreach (var cartItem in Model.CartList)
+        {
+            <tr>
+                <td>@cartItem.id</td>
+                <td>@cartItem.name</td>
+                <td>@cartItem.price</td>
+                <td>@cartItem.quantity</td>                
+            </tr>
+        }
+    </table>
+    <br />
+    <div><label for="購買總額">購物總額：</label>@Model.TotalPrice</div><br /><br />
+    <div><input type="Submit" name="BtnCheckout" value="結帳" />&nbsp;&nbsp;<input type="Submit" name="BtnCheckout" value="取消" /></div>
+</form>
+

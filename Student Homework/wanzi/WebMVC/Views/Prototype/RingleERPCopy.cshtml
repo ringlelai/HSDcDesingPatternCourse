@@ -1,0 +1,29 @@
+﻿@model hsdc.dpt.Control.DTO.Creational.Prototype.RingleERP.InternalDto.PurchaseOrderDto
+
+@{
+    ViewBag.Title = "新增採購單";
+}
+
+<h2>新增採購單</h2>
+
+@using (Html.BeginForm("REAddPo", "Prototype", FormMethod.Post, new { id = "frmSave" }))
+{
+    <table>
+        <tr>
+            <th>客戶名稱</th>
+            <td>@Html.TextBoxFor(m => m.CustomerName)</td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <button id="btnAdd">新增</button>
+}
+
+@section BodyScripts
+{
+    <script>
+        $("#btnAdd").click(function () {
+            $("#frmSave").submit();
+        });
+    </script>
+}

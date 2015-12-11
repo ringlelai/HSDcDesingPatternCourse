@@ -1,0 +1,3 @@
+第一次作業  Builder Pattern 辦公室自動化系統 內 新增旅遊費用申請單 
+
+第二次作業  simple watch factory class diagram  實際的code尚未寫  下次會補

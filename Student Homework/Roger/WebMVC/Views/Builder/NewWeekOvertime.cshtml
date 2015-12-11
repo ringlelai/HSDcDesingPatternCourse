@@ -1,0 +1,52 @@
+﻿@model hsdc.dpt.Control.DTO.Creational.Builder.WeekOvertime
+@{
+    ViewBag.Title = "新增加班單";
+}
+<h2>新增加班單</h2>
+@using (Html.BeginForm("SaveWeekOvertime", "Builder", FormMethod.Post, new { id = "frmSave" }))
+{
+    <table>
+        <tr>
+            <th>加班單號</th>
+            <td>@(Model.OvertimeId == null ? "" : Model.OvertimeId)</td>
+        </tr>
+        <tr>
+            <th>周起始日期</th>
+            <td>@Html.TextBoxFor(m => m.WeekStartDate)</td>
+        </tr>
+        <tr>
+            <th>申請人</th>
+            <td>@Html.TextBoxFor(m => m.Applier)</td>
+        </tr>
+        <tr>
+            <th>部門</th>
+            <td>@Html.TextBoxFor(m => m.Department, new Dictionary<string, object>() { { "readonly", "true" } })</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>星期</td>
+            <td>起始時間</td>
+            <td>結束時間</td>
+        </tr>
+        @for (var i = 0; i < Model.LineItems.Count; i++)
+        {
+            <tr>
+                <td>@Html.TextBoxFor(m => Model.LineItems[i].Day)</td>
+                <td>@Html.TextBoxFor(m => Model.LineItems[i].from)</td>
+                <td>@Html.TextBoxFor(m => Model.LineItems[i].to)</td>
+            </tr>
+        }
+    </table>
+    <br />
+    <br />
+    <button id="save">儲存</button>
+}
+@section BodyScripts
+{
+    <script>
+        $("#save").click(function () {
+            $("#frmSave").submit();
+        });
+    </script>
+}

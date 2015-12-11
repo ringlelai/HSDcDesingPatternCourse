@@ -1,0 +1,54 @@
+﻿@model List<string>
+
+@{
+    ViewBag.Title = "查詢員工資訊";
+}
+
+<h2>查詢員工資訊</h2>
+
+請選擇部門:
+<select id="deptId">
+    <option>-</option>
+    @{
+        foreach (var deptname in Model)
+        {
+            <option>@deptname</option>
+        }
+    }
+</select>
+<br />
+<div id="divResult" style="display:none">
+</div>
+
+@section BodyScripts
+{
+    <script>
+        $("#deptId").change(function () {
+            var value = $("#deptId").val();
+            if (value == "-") {
+                alert("請先選擇一個部門");
+                $("#divResult").hide();
+                return;
+            }
+            var inputdata = { deptName: value };
+            $.ajax({
+                type: 'GET',
+                url: '/Composite/QueryEmp',
+                datatype: 'application/json',
+                data: inputdata,
+                async: false,
+                success: function (data) {
+                    var div = $("#divResult");
+                    div.empty();
+                    var html = "<p>所有員工共" + data.length + "人</p>";
+                    html += "<p>員工列表如下:</p>";
+                    $.each(data, function (i, item) {
+                        html += "<p>" + data[i] + "</p>";
+                    });
+                    div.append(html);
+                    div.show();
+                }
+            });
+        });
+    </script>
+}

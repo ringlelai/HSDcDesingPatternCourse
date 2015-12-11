@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "使用者登入";
+}
+
+<h2>使用者登入</h2>
+
+<div id="main">
+    <table>
+        <tr>
+            <th>使用者代號</th>
+            <td><input type="text" id="userId" /></td>
+        </tr>
+        <tr>
+            <th>使用者密碼</th>
+            <td><input type="password" id="password" /></td>
+        </tr>
+    </table>
+    <br />
+    <table>
+        <tr>
+            <td><button id="btnDefault">基本登入</button></td>
+            <td><button id="btnDb">使用DB登入</button></td>
+            <td><button id="btnLdapAndAuthority">使用LDAP登入(加入新的功能)</button></td>
+        </tr>
+    </table>
+</div>
+<br />
+<div id="userContent"></div>
+<br />
+<div id="functionList"></div>
+@section BodyScripts
+{
+    <script>
+        $("#btnDefault").click(function () {
+            login("default");
+        });
+        $("#btnDb").click(function () {
+            login("db");
+        });
+        $("#btnLdapAndAuthority").click(function () {
+            login("ldap");
+        });
+        function login(type) {
+            var inputdata = { type : type, userId : $("#userId").val(), password : $("#password").val() };
+            $.ajax({
+                type: 'GET',
+                url: '/Decorator/Login',
+                datatype: 'application/json',
+                data: inputdata,
+                async: false,
+                success: function (data) {
+                    var div = $("#userContent");
+                    var divFunction = $("#functionList");
+                    div.empty();
+                    divFunction.empty();
+                    var html = "";
+                    if (data.User == null) {
+                        html = "<p>不是有效的使用者</p>"
+                        div.append(html);
+                        div.show();
+                        divFunction.hide();
+                        return;
+                    }
+                    html = "<p>使用者名稱為：" + data.User.UserName + "</p>";
+                    div.append(html);
+                    div.show();
+                    html = "<p>功能列表如下：</p>";
+                    $.each(data.Acl, function (i, item) {
+                        html += "<p><a href='" + item.FunctionUrl + "'>" + item.FunctionName + "</a></p>";
+                    });
+                    divFunction.append(html);
+                    divFunction.show();
+                }
+            });
+        };
+    </script>
+}
