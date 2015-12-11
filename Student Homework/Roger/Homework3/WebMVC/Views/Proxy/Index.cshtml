@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Proxy Pattern</h2>
+<h3>烏龜認證資訊查詢表單</h3>
+<form name="frmIdentify" action="/Proxy/Identify" method="post">
+    <div>
+        <label for="SenderType">選擇烏龜品種： </label>
+        <select id="selTurtleType" name="selTurtleType">
+            <option value="陸龜">陸龜</option>
+            <option value="澤龜">澤龜</option>
+            <option value="象龜">象龜</option>
+        </select>
+    </div>
+    <br />
+    <div>
+        <label for="SerialNo">序號： </label>
+        @Html.TextBox("txtSerialNo")
+    </div>
+    <br />
+    <div><input type="Submit" name="Submit" value="查詢" /></div>
+</form>

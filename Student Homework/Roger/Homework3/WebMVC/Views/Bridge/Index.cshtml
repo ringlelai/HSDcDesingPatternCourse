@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Bridge Pattern</h2>
+<form name="frmNotify" action="/Bridge/Notify" method="post">
+    <div>
+        <label for="NotifyType">選擇通知類別： </label>
+        @Html.RadioButton("NotifyType", "UserNotify", true) 使用者訊息
+        @Html.RadioButton("NotifyType", "SystemNotify", false) 系統訊息 <br />
+    </div>
+    <br />
+    <div>
+        <label for="SenderType">選擇傳送類型： </label>
+        @Html.RadioButton("SenderType", "EmailSender", true) Email
+        @Html.RadioButton("SenderType", "LineSender", false) Line <br />
+    </div>
+    <br />
+    <div>
+        <label for="Recipient">收件人： </label>
+        @Html.TextBox("txtRecipient")
+    </div>
+    <div>
+        <label for="Subject">主旨　： </label>
+        @Html.TextBox("txtSubject")
+    </div>
+    <div>
+        <label for="Body">內容　： </label>
+        @Html.TextArea("txtBody")
+    </div>
+    <br/><br/>
+    <div><input type="Submit" name="Submit" value="Submit" /></div>
+</form>
