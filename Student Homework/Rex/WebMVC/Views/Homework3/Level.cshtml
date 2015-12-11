@@ -1,0 +1,95 @@
+﻿@using WebMVC.ViewModels.Homework3
+@model List<RestaurantViewModel>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-10">
+                <h2>Search Count = @Model.Count</h2>
+            </div>
+            <div class="col col-sm-2">
+                <a class="btn btn-default" href="@Url.Action("Index")">Index</a>
+            </div>
+        </div>
+        @RenderTable(@Model)
+    </div>
+</section>
+
+@helper RenderTable(List<RestaurantViewModel> items)
+{
+int i = 1;
+foreach (var item in items)
+{
+        @(i % 3 == 0 ? RenderTr(item) : RenderTd(item))
+    i++;
+}
+}
+
+@helper RenderTr(RestaurantViewModel item)
+{
+    <div class="row">
+        @RenderTd(item)
+    </div>
+}
+
+@helper RenderTd(RestaurantViewModel item)
+{
+    <div class="col-sm-4 team-member-wrap">
+        <div class="team-member">
+            @RenderImg(item.ThumbnailUrl)
+            <div class="team-details">
+                <div class="editContent">
+                    <h4 class="member-name">@item.Name</h4>
+                </div>
+                <div class="editContent" style="display: inline-flex">
+                    <span style="padding-right: 8px"><i class="fa  fa-money "></i></span>
+                    <span class="position">@item.Price</span>
+                    <span style="min-width: 200px"></span>
+                    <span><a href="@item.InfoSiteUrl" target="_blank"><i class="fa fa-info-circle"></i></a></span>
+                </div>
+                <div class="editContent">
+                    <p>@item.Descript</p>
+                </div>
+
+                <div>
+                    <ul class="social social-dark">
+                        <li><a href="#"><i class="fa fa-2x fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-2x fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-2x fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-2x fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-2x fa-behance"></i></a></li>
+                        <li><a href="#"><i class="fa fa-2x fa-dribbble"></i></a></li>
+                    </ul><!-- /.social -->
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@helper RenderImg(string url)
+{
+if (string.IsNullOrWhiteSpace(url) == false)
+{
+        <img src="@url" class="img-responsive" alt="Member Image" />
+}
+else
+{
+        <img src="http://placehold.it/600x500" class="img-responsive" alt="Member Image" />
+}
+}
+
+@section Css{
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="~/Content/Homework3/style.css" rel="stylesheet" />
+    <link href="~/Content/Homework3/style.complete.css" rel="stylesheet" />
+    <style>
+        .col {
+            margin: 0 0 0 0;
+            padding-top: 18px;
+        }
+
+        .img-responsive {
+            min-width: 340px;
+        }
+    </style>
+}
