@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "簡單計算機";
+}
+
+<h2>簡單計算機</h2>
+<table>
+    <tr>
+        <td colspan="5"><input type="text" readonly="readonly" id="_result" value="0" style="text-align:right;width:95%" /></td>
+    </tr>
+    <tr>
+        <td><button id="_1" onclick="javascript: addNumber('1');">1</button></td>
+        <td><button id="_2" onclick="javascript: addNumber('2');">2</button></td>
+        <td><button id="_3" onclick="javascript: addNumber('3');">3</button></td>
+        <td colspan="2"><button id="_C" style="width:85%">C</button></td>
+    </tr>
+    <tr>
+        <td><button id="_4" onclick="javascript: addNumber('4');">4</button></td>
+        <td><button id="_5" onclick="javascript: addNumber('5');">5</button></td>
+        <td><button id="_6" onclick="javascript: addNumber('6');">6</button></td>
+        <td><button id="_Plus" onclick="javascript: addOperator('+');">+</button></td>
+        <td><button id="_Minus" onclick="javascript: addOperator('-');">-</button></td>
+    </tr>
+    <tr>
+        <td><button id="_7" onclick="javascript: addNumber('7');">7</button></td>
+        <td><button id="_8" onclick="javascript: addNumber('8');">8</button></td>
+        <td><button id="_9" onclick="javascript: addNumber('9');">9</button></td>
+        <td><button id="_Multiple" onclick="javascript: addOperator('*');">X</button></td>
+        <td><button id="_Divide" onclick="javascript: addOperator('/');">/</button></td>
+    </tr>
+    <tr>
+        <td colspan="3"><button id="_0" style="width:90%" onclick="javascript: addNumber('0');">0</button></td>
+        <td colspan="2"><button id="_Equal" style="width:85%" onclick="javascript: compute();">=</button></td>
+    </tr>
+</table>
+<input type="hidden" id="operand" value="0"/>
+<input type="hidden" id="isReset" value="true"/>
+<input type="hidden" id="operator" value="+"/>
+
+@section BodyScripts
+{
+    <script>
+        function addNumber(number) {
+            var currentVal = parseInt($("#_result").val(), 10);
+            var isReset = $("#isReset").val();
+            if (isReset == "true") {
+                currentVal = 0;
+            }
+            var intVal = parseInt(number, 10);
+            currentVal = currentVal * 10 + intVal;
+            $("#isReset").val("false");
+            $("#_result").val(currentVal);
+        }
+        function addOperator(operator) {
+            var currentVal = parseInt($("#_result").val(), 10);
+            $("#operand").val(currentVal);
+            if ($("#operator").val() != "")
+                compute();
+            $("#operator").val(operator);
+            $("#isReset").val("true");
+        }
+        function compute() {
+            var operand = $("#operand").val();
+            var operator = $("#operator").val();
+            var inputdata = { operand: operand, operator: operator };
+            $.ajax({
+                type: 'GET',
+                url: '/Command/Compute',
+                datatype: 'application/json',
+                data: inputdata,
+                async: false,
+                success: function (data) {
+                    $("#_result").val(data);
+                }
+            });
+        }
+        $("#_C").click(function () {
+            var inputdata = {};
+            $.ajax({
+                type: 'GET',
+                url: '/Command/Clear',
+                datatype: 'application/json',
+                data: inputdata,
+                async: false,
+                success: function (data) {
+                    $("#_result").val(data);
+                    $("#isReset").val("true");
+                    $("#operator").val("+");
+                    $("#operand").val("0");
+                }
+            });
+        });
+    </script>
+}
+

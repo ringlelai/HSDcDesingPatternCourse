@@ -1,0 +1,30 @@
+﻿@using hsdc.dpt.Control.DTO.Creational.FactoryMethod
+@model WebMVC.ViewModels.MapFactoryMethod.BingMapViewModel
+
+@{
+    ViewBag.Title = "BingMap";
+
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <h2>@ViewBag.Title</h2>
+        </div>
+
+        <div class="row">
+
+            @{
+
+                foreach (Pushpin pushpin in @Model.Pushpins)
+                {
+                    <div class="col col-md-1">@pushpin.Id</div>
+                    <div class="col col-md-3">@pushpin.Name</div>
+                    <div class="col col-md-4">@pushpin.Lat</div>
+                    <div class="col col-md-4">@pushpin.Lng</div>
+                }
+
+            }
+        </div>
+    </div>
+</section>

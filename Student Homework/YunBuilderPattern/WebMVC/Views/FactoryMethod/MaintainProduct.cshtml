@@ -1,0 +1,50 @@
+﻿@model IEnumerable<hsdc.dpt.Control.DTO.Creational.FactoryMethod.Product>
+
+@{
+    ViewBag.Title = "維護產品資料";
+}
+
+<h2>維護產品資料</h2>
+
+<p>
+    @Html.ActionLink("新增產品", "CreateProduct")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            產品編號
+        </th>
+        <th>
+            產品名稱
+        </th>
+        <th>
+            產品類別
+        </th>
+        <th>
+            產品建議售價
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductMSRP)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "EditProduct", new { id=item.ProductID }) |
+            @Html.ActionLink("刪除", "DeleteProduct", new { id=item.ProductID })
+        </td>
+    </tr>
+}
+
+</table>
