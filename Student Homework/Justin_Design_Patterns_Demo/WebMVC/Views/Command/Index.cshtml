@@ -32,6 +32,11 @@
         <td colspan="3"><button id="_0" style="width:90%" onclick="javascript: addNumber('0');">0</button></td>
         <td colspan="2"><button id="_Equal" style="width:85%" onclick="javascript: compute();">=</button></td>
     </tr>
+    <tr>
+        <td colspan="1">UNDO</td>
+        <td colspan="3"><input type="text"  id="levels" value="0"  /></td>
+        <td colspan="1"><button id="undo"  onclick="javascript: undo();">undo</button></td>
+    </tr>
 </table>
 <input type="hidden" id="operand" value="0"/>
 <input type="hidden" id="isReset" value="true"/>
@@ -74,6 +79,22 @@
                 }
             });
         }
+
+        function undo() {
+            var levels = $("#levels").val();
+            var inputdata1 = { levels: levels };
+            $.ajax({
+                type: 'GET',
+                url: '/Command/Undo',
+                datatype: 'application/json',
+                data: inputdata1,
+                async: false,
+                success: function (data) {
+                    $("#_result").val(data);
+                }
+            });
+        }
+
         $("#_C").click(function () {
             var inputdata = {};
             $.ajax({

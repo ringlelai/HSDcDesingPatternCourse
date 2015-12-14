@@ -99,6 +99,7 @@
     <Compile Include="Creational\FactoryMethod\Singleton.cs" />
     <Compile Include="Creational\Prototype\RingleERP\MaintainPurchaseOrderControl.cs" />
     <Compile Include="Creational\Prototype\RingleFramework\MaintainPurchaseConrol.cs" />
+    <Compile Include="Creational\Singleton\MutexGeneratorSingleton .cs" />
     <Compile Include="Creational\Singleton\IDGeneratorSingleton.cs" />
     <Compile Include="DTO\Behavioral\CoR\CustomExceptions.cs" />
     <Compile Include="DTO\Behavioral\CoR\DonateType.cs" />
