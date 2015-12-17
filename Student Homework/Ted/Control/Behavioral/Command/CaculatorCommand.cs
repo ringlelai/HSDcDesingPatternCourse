@@ -6,16 +6,29 @@ using System.Threading.Tasks;
 
 namespace hsdc.dpt.Control.Behavioral.Command.Caculator
 {
+    [Serializable]
     public class CalculationInvoker
     {
         private List<Command> commands = new List<Command>();
-        public void Compute(object receiver, string @operator, int operand)
+        private Stack<int> results = new Stack<int>();
+
+        public void Compute(Calculator receiver, string @operator, int operand)
         {
             // Create command operation and execute it
             Command command = new ElementaryArithCommand(
               receiver, @operator, operand);
             command.Execute();
             commands.Add(command);
+            results.Push(receiver.GetResult());
+        }
+        public void Undo(Calculator receiver)
+        {
+            if (results.Count > 0)
+              results.Pop();
+            if (results.Count > 0)
+                receiver.SetCurr(results.Peek());
+            else
+                receiver.SetCurr(0);
         }
     }
 
@@ -48,9 +61,25 @@ namespace hsdc.dpt.Control.Behavioral.Command.Caculator
     }
 
     [Serializable]
-    public class ElementaryArithCaculator
+    public abstract class Calculator
     {
-        private int _curr = 0;
+        protected int _curr = 0;
+
+        public void SetCurr(int input)
+        {
+            _curr = input;
+        }
+
+        public int GetResult()
+        {
+            return _curr;
+        }
+    }
+
+
+    public class ElementaryArithCaculator : Calculator
+    {
+        
 
         public void Operation(string @operator, int operand)
         {
@@ -61,11 +90,6 @@ namespace hsdc.dpt.Control.Behavioral.Command.Caculator
                 case "*": _curr *= operand; break;
                 case "/": _curr /= operand; break;
             }
-        }
-
-        public int GetResult()
-        {
-            return _curr;
         }
     }
 }
