@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "中文數值轉換";
+}
+
+<h2>中文數值轉換</h2>
+<table>
+    <tr>
+        <th>請輸入數值進行轉換:</th>
+        <td><input type="text" id="inputVal" value="" /></td>
+    </tr>
+</table>
+<button id="transChinese">轉換為中文數值</button>
+<br />
+<div id="result" style="display:none">
+</div>
+
+@section BodyScripts
+{
+    <script>
+        $("#transChinese").click(function () {
+            var inputdata = { number: $("#inputVal").val() };
+            $.ajax({
+                type: 'GET',
+                url: '/Interpreter/TransferToChinese',
+                datatype: 'application/json',
+                data: inputdata,
+                async: false,
+                success: function (data) {
+                    var div = $("#result");
+                    div.empty();
+                    var html = "<p>" + data + "</p>";
+                    div.append(html);
+                    div.show();
+                }
+            });
+        });
+    </script>
+}
