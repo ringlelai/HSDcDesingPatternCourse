@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: gs-rest-service
+Implementation-Version: 0.1.0
+Built-By: eddard33
+Implementation-Vendor-Id: org.springframework
+Build-Jdk: 1.8.0_45
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
