@@ -23,8 +23,17 @@ namespace WebMVC.Controllers.Behavioural
                 Session.Add("calculator", new ElementaryArithCaculator());
             }
             receiver = (ElementaryArithCaculator)Session["calculator"];
-            (new CalculationInvoker()).Compute(receiver, @operator, operand);
+
+            if(Session["Invoker"] == null)
+            {
+                Session.Add("Invoker", new CalculationInvoker());
+            }
+            var invoker = (CalculationInvoker)Session["Invoker"];
+
+            //(new CalculationInvoker()).Compute(receiver, @operator, operand);
+            invoker.Compute(receiver, @operator, operand);
             Session["calculator"] = receiver;
+            Session["Invoker"] = invoker;
             return Json(receiver.GetResult(), JsonRequestBehavior.AllowGet);
         }
 
@@ -37,6 +46,26 @@ namespace WebMVC.Controllers.Behavioural
             }
             receiver = new ElementaryArithCaculator();
             Session["calculator"] = receiver;
+            return Json(receiver.GetResult(), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Undo(int levels)
+        {
+            ElementaryArithCaculator receiver;
+            if (Session["calculator"] == null)
+            {
+                Session.Add("calculator", new ElementaryArithCaculator());
+            }
+            if (Session["Invoker"] == null)
+            {
+                Session.Add("Invoker", new CalculationInvoker());
+            }
+            var invoker = (CalculationInvoker)Session["Invoker"];
+            receiver = (ElementaryArithCaculator)Session["calculator"];
+            //(new CalculationInvoker()).Undo(levels);
+            invoker.Undo(levels);
+            Session["calculator"] = receiver;
+            Session["Invoker"] = invoker;
             return Json(receiver.GetResult(), JsonRequestBehavior.AllowGet);
         }
     }

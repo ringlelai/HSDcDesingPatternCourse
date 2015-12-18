@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="col-md-12">
+			<table class="table table-bordered">
+				<tr>
+					<td colspan="4">
+						<input id="calString" name="calString" type="text" class="form-control" readonly>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="+" onclick="appendcalString('+')">+</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="-" onclick="appendcalString('-')">-</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="*" onclick="appendcalString('*')">*</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="/" onclick="appendcalString('/')">/</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="0" onclick="appendcalString('0')">0</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="1" onclick="appendcalString('1')">1</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="2" onclick="appendcalString('2')">2</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="3" onclick="appendcalString('3')">3</button>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="4" onclick="appendcalString('4')">4</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="5" onclick="appendcalString('5')">5</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="6" onclick="appendcalString('6')">6</button>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="1" onclick="appendcalString('7')">7</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="2" onclick="appendcalString('8')">8</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="3" onclick="appendcalString('9')">9</button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="C" onclick="clearCalWindow()">C</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="undo" onclick="sendCommand('undoCommand')">undo</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="redo" onclick="sendCommand('redoCommand')">redo</button>
+					</td>
+					<td>
+						<button class="btn btn-default btn-block" type="button" value="calculate" onclick="sendCommand('calculateCommand')">calculate</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+<script>
+	function appendcalString(importString){
+		$('#calString').val(function(index, value) {
+			return value + importString;
+		});
+	}
+	
+	function clearCalWindow(){
+		$('#calString').val('');
+	}
+	
+	function sendCommand(command){
+		$.post('../class/runMath.php',{'calCommand':command, 'calString':$('#calString').val()},function(data){
+			console.log(data);
+			$('#calString').val(data);
+		});
+	}
+
+</script>
+
+</html>
