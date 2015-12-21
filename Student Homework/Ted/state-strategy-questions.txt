@@ -1,2 +1,0 @@
-State vs. strategy: 不同的 strategy 以不同的方式執行相同的指令。不同的 state 則有各自需要執行的事。
-Replace type code with state/strategy: 將每個 type 改寫為個別的 state 或 strategy，並由其執行與它相關的運算。
